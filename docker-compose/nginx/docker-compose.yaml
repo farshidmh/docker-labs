@@ -1,0 +1,12 @@
+version: "3.9"
+    
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx-dir/html:/usr/share/nginx/html
+      - ./nginx-dir/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-dir/logs:/var/log/nginx
+    ports:
+    - "8000:80"
+    restart: unless-stopped
